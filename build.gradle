@@ -26,7 +26,6 @@ repositories {
 
 dependencies {
 	compile('org.mariadb.jdbc:mariadb-java-client')
-	compile('org.flywaydb:flyway-core:4.2.0')
 	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'

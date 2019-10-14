@@ -9,9 +9,6 @@ spring:
     password: root
     name: spring_data
     driver-class-name: org.mariadb.jdbc.Driver
-  flyway:
-    locations: classpath:db/migration/mariadb
-    enabled: true
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
