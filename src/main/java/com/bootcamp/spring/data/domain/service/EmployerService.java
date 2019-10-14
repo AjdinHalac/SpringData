@@ -30,9 +30,7 @@ public class EmployerService {
 				command.type,
 				command.name,
 				command.displayId,
-				command.email,
-				command.address,
-				command.city
+				command.email
 		);
 		return employerRepository.save(employer);
 	}
@@ -50,8 +48,6 @@ public class EmployerService {
 	    var employer = this.getEmployerByUuid(uuid);
 		employer
 				.setName(command.name)
-				.setAddress(command.address)
-				.setCity(command.city)
 				.setEmail(command.email);
 		return employerRepository.save(employer);
 	}
