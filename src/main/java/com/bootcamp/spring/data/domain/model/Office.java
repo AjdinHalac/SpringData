@@ -12,7 +12,7 @@ public class Office {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String address;
 
     @Column(nullable = false, length = 50)
@@ -40,6 +40,10 @@ public class Office {
     }
 
     public String getAddress(){
+        return address;
+    }
+
+    public String getName(){
         return address;
     }
 

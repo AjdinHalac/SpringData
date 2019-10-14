@@ -6,5 +6,4 @@ public class CreateEmployerCommand {
     public String displayId;
     public String email;
     public String address;
-    public String city;
 }

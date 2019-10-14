@@ -30,7 +30,7 @@ public class Employer {
     @Column(nullable = false)
     private TypeEnum type;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "office_id", referencedColumnName = "id", nullable = false)
     private Office office;
 
@@ -49,10 +49,12 @@ public class Employer {
             String type,
             String name,
             String displayId,
-            String email
+            String email,
+            Office office
     ) {
         this.uuid = uuid;
         this.displayId = displayId;
+        this.office = office;
         this
                 .setName(name)
                 .setType(type)
