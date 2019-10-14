@@ -22,6 +22,18 @@ public class Employee {
     @Column(nullable = false, length = 50)
     private String email;
 
+    @ManyToOne
+    @JoinColumn(name="employer_id", nullable=false)
+    private Employer employer;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "employee_project",
+        joinColumns = { @JoinColumn(name = "employee_id") },
+        inverseJoinColumns = { @JoinColumn(name = "project_id") }
+    )
+    Set<Project> projects = new HashSet<>();
+
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
@@ -35,9 +47,10 @@ public class Employee {
             String email
     ) {
         this.uuid = uuid;
-        this.setName(name);
+        this
+                .setName(name)
+                .setEmail(email);
         this.createdAt = LocalDateTime.now();
-        this.email = email;
     }
 
     public Long getId() {

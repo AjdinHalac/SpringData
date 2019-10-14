@@ -30,6 +30,13 @@ public class Employer {
     @Column(nullable = false)
     private TypeEnum type;
 
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "office_id", referencedColumnName = "id", nullable = false)
+    private Office office;
+
+    @OneToMany(mappedBy="employer")
+    private Set<Employee> employees;
+
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
@@ -39,17 +46,18 @@ public class Employer {
 
     public Employer(
             UUID uuid,
-            String tntType,
+            String type,
             String name,
-            String tntDisplayId,
+            String displayId,
             String email
     ) {
         this.uuid = uuid;
-        this.displayId = tntDisplayId;
-        this.setName(name)
-            .setType(tntType);
+        this.displayId = displayId;
+        this
+                .setName(name)
+                .setType(type)
+                .setEmail(email);
         this.createdAt = LocalDateTime.now();
-        this.email = email;
     }
 
     public Long getId() {

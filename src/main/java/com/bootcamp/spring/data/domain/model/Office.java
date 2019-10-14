@@ -18,6 +18,9 @@ public class Office {
     @Column(nullable = false, length = 50)
     private String city;
 
+    @OneToOne(mappedBy = "office")
+    private Employer employer;
+
     // Hibernate requires no-arg constructor
     protected Office() {
     }
