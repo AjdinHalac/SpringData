@@ -1,11 +1,11 @@
 package com.bootcamp.spring.data.core.exceptionhandler.exceptions;
 
-public class TenantAlreadyExistsException extends RuntimeException{
-    public TenantAlreadyExistsException() {
+public class EmployerAlreadyExistsException extends RuntimeException{
+    public EmployerAlreadyExistsException() {
         super();
     }
 
-    public TenantAlreadyExistsException(String message) {
+    public EmployerAlreadyExistsException(String message) {
         super(message);
     }
 }

@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: data
+  datasource:
+    url: jdbc:mariadb://localhost:3306/spring_data?createDatabaseIfNotExist=true
+    username: root
+    password: root
+    name: spring_data
+    driver-class-name: org.mariadb.jdbc.Driver
+  flyway:
+    locations: classpath:db/migration/mariadb
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none

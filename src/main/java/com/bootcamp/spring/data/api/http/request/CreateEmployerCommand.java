@@ -1,6 +1,6 @@
 package com.bootcamp.spring.data.api.http.request;
 
-public class CreateTenantCommand {
+public class CreateEmployerCommand {
     public String type;
     public String name;
     public String displayId;

@@ -1,6 +1,6 @@
 package com.bootcamp.spring.data.api.http.request;
 
-public class EditTenantCommand {
+public class EditEmployerCommand {
     public String name;
     public String email;
     public String address;
