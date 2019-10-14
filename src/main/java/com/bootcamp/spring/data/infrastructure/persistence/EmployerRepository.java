@@ -10,10 +10,10 @@ import java.util.UUID;
 
 public interface EmployerRepository extends CrudRepository<Employer, Long> {
 
-    Optional<Employer> findByUuid(UUID tenantUuid);
+    Optional<Employer> findByUuid(UUID uuid);
 
     Optional<Employer> findByDisplayId(String displayId);
 
-    @Query( "select t from Employer t" )
+    @Query( "select e from Employer e" )
     List<Employer> findAll();
 }
