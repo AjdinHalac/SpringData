@@ -1,0 +1,35 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.4.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+//if you change the default here do it also in the Dockerfile
+version = System.getenv("BUILD_VERSION") ?: 'dev-master'
+println("Building version: " + version)
+group = 'com.bootcamp.spring.data'
+sourceCompatibility = 10
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile('org.mariadb.jdbc:mariadb-java-client')
+	compile('org.flywaydb:flyway-core:4.2.0')
+	compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.4'
+	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.0.0.RELEASE'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.0.RELEASE'
+}
