@@ -1,0 +1,29 @@
+version: '3.5'
+services:
+  mariadb:
+    image: mariadb:10.4.4
+    container_name: spring-data-mariadb
+    environment:
+    - MYSQL_ROOT_PASSWORD=root
+    ports:
+    - "3306:3306"
+    volumes:
+    - "./data/mysql:/var/lib/mysql"
+    networks:
+      infrastructure:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    container_name: spring-data-phpmyadmin
+    environment:
+    - PMA_HOST=mariadb
+    - PMA_USER=root
+    - PMA_PASSWORD=root
+    ports:
+    - "80:80"
+    networks:
+      infrastructure:
+networks:
+  infrastructure:
+    driver: bridge
+    name: spring-data-infrastructure
+
